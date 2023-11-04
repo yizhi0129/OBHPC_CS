@@ -7,41 +7,52 @@
 //
 #include "types.h"
 
-//
+//print a n*n matrix, type double
 void print_f64(f64 *restrict a, u64 n)
 {
   for (u64 i = 0; i < n * n; i++)
+  {
     printf("%lf%c", a[i], ((i + 1) % n) ? ' ' : '\n');
-  
+  }
   printf("\n");
 }
 
-//
+//fill the matrix with random values, zeros, or constant values
 void init_f64(f64 *restrict a, u64 n, const ascii m)
 {
   //Random value per entry
   if (m == 'r' || m == 'R')
     {
       for (u64 i = 0; i < n * n; i++)
-	a[i] = (f64)RAND_MAX / (f64)rand();
+      {
+	      a[i] = (f64)RAND_MAX / (f64)rand();
+      }
     }
-  else //Zeroing up the array
+
+  //Zeroing up the array
+  else 
     if (m == 'z' || m == 'Z')
       {
-	for (u64 i = 0; i < n * n; i++)
-	  a[i] = 0.0;
+	      for (u64 i = 0; i < n * n; i++)
+        {
+	        a[i] = 0.0;
+        }
       }
-    else //Same value per entry
-      if (m == 'c' || m == 'C')
-	{
-	  f64 c = (f64)RAND_MAX / (f64)rand();
+
+  //Same value per entry
+  else 
+    if (m == 'c' || m == 'C')
+	    {
+	      f64 c = (f64)RAND_MAX / (f64)rand();
 	  
-	  for (u64 i = 0; i < n * n; i++)
-	    a[i] = c;
-	}
+	      for (u64 i = 0; i < n * n; i++)
+        {
+	        a[i] = c;
+        }
+	    }
 }
 
-//
+//sort ascending
 void sort_f64(f64 *restrict a, u64 n)
 {
   for (u64 i = 0; i < n; i++)
@@ -55,7 +66,7 @@ void sort_f64(f64 *restrict a, u64 n)
 	}
 }
 
-//
+//calculate mean value 
 f64 mean_f64(f64 *restrict a, u64 n)
 {
   f64 m = 0.0;
@@ -68,7 +79,7 @@ f64 mean_f64(f64 *restrict a, u64 n)
   return m;
 }
 
-//
+//standard deviation
 f64 stddev_f64(f64 *restrict a, u64 n)
 {
   f64 d = 0.0;

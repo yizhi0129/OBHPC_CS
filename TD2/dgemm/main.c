@@ -19,7 +19,7 @@
 //
 #define MAX_SAMPLES 33
 
-//
+//performance benchmarking
 void run_benchmark(const ascii *title,
 		   void (*kernel)(f64 *restrict, f64 *restrict, f64 *restrict, u64),
 		   u64 n,
@@ -28,7 +28,7 @@ void run_benchmark(const ascii *title,
 //
 int main(int argc, char **argv)
 {
-  //
+  //initialize pseudo-random number generator
   srand(getpid());
 
   //
@@ -47,10 +47,19 @@ int main(int argc, char **argv)
 	 "KiB", "MiB", "GiB",
 	 "n", "r", "min", "max", "mean", "stddev (%)", "MiB/s");
   
+  printf("IJK\n");
   run_benchmark("IJK",   dgemm_ijk, n, r);
+
+  printf("KIJ\n");
   run_benchmark("IKJ",   dgemm_ikj, n, r);
+
+  printf("KIJ\n");
   run_benchmark("IEX",   dgemm_iex, n, r);
+
+  printf("KIJ\n");
   run_benchmark("UNROLL", dgemm_unroll, n, r);
+
+  printf("KIJ\n");
   run_benchmark("CBLAS", dgemm_cblas, n, r);
   
   //

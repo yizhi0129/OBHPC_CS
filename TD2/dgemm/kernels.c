@@ -1,8 +1,8 @@
 //
 #if defined(__INTEL_COMPILER)
-#include <mkl.h>
+#include <mkl.h> // intel math kernel library
 #else
-#include <cblas.h>
+#include <cblas.h> //BLAS library, input type: double
 #endif
 
 //
@@ -11,6 +11,7 @@
 //Baseline - naive implementation
 void dgemm_ijk(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
 {
+	printf("IJK start\n");
   for (u64 i = 0; i < n; i++)
     for (u64 j = 0; j < n; j++)
       for (u64 k = 0; k < n; k++)
@@ -18,6 +19,7 @@ void dgemm_ijk(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
 }
 
 //First optimization (loop interchange) 
+//memory access optimized
 void dgemm_ikj(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
 {
   for (u64 i = 0; i < n; i++)
@@ -27,6 +29,7 @@ void dgemm_ikj(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
 }
 
 //Second optimization (loop interchange + invariant extraction) 
+//intermediate expression, less memory accesses
 void dgemm_iex(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
 {
   for (u64 i = 0; i < n; i++)
@@ -41,7 +44,7 @@ void dgemm_iex(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
     }
 }
 
-//
+//loop unrolling : 4 results returned in each iteration
 void dgemm_unroll(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
 {
 
@@ -69,7 +72,7 @@ void dgemm_unroll(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
     }
 }
 
-//
+//high performance function from CBLAS library
 void dgemm_cblas(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
 {
   cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, n, n, n, 1.0, a, n, b, n, 0.0, c, n);
