@@ -48,7 +48,13 @@ int main(int argc, char **argv)
 	 "n", "r", "d", "min", "max", "mean", "stddev (%)", "MiB/s");
   
   run_benchmark("BASE",   dotprod_base, n, r);
-
+  
+  run_benchmark("UNROLL4",   dotprod_unroll4, n, r);
+  
+  run_benchmark("UNROLL8",   dotprod_unroll8, n, r);
+  
+  run_benchmark("CBLAS",   dotprod_cblas, n, r);
+  
   //
   return 0;
 }
@@ -82,13 +88,15 @@ void run_benchmark(const ascii *title,
   init_f64(a, n, 'r');
   init_f64(b, n, 'r');
 
+
   //
   for (u64 i = 0; i < MAX_SAMPLES; i++)
     {
       do
 	{
 	  clock_gettime(CLOCK_MONOTONIC_RAW, &t1);
-    
+
+
 	  for (u64 j = 0; j < r; j++)
 	    d = kernel(a, b, n);
 	  
@@ -128,7 +136,7 @@ void run_benchmark(const ascii *title,
 	 dev,
 	 (dev * 100.0 / mean),
 	 mbps);
-  
+
   //
   free(a);
   free(b);
