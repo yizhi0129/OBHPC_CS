@@ -1,0 +1,14 @@
+     title;             KiB;             MiB;             GiB;          n;          r;               d;             min;             max;            mean;                 stddev (%);      MiB/s
+      BASE;           0.078;           0.000;           0.000;          5;         20;          80.129;           8.300;          23.000;          11.194;           2.267 (20.248 %);   3407.824
+     title;             KiB;             MiB;             GiB;          n;          r;               d;             min;             max;            mean;                 stddev (%);      MiB/s
+      BASE;           0.078;           0.000;           0.000;          5;        200;          22.602;           4.730;           5.630;           4.765;           0.155 ( 3.260 %);   8005.406
+     title;             KiB;             MiB;             GiB;          n;          r;               d;             min;             max;            mean;                 stddev (%);      MiB/s
+      BASE;           0.625;           0.001;           0.000;         40;        300;         916.284;          48.273;          49.483;          48.328;           0.208 ( 0.429 %);   6314.734
+     title;             KiB;             MiB;             GiB;          n;          r;               d;             min;             max;            mean;                 stddev (%);      MiB/s
+      BASE;           0.078;           0.000;           0.000;          5;         60;          90.896;           5.933;           9.700;           6.055;           0.654 (10.809 %);   6300.026
+     title;             KiB;             MiB;             GiB;          n;          r;               d;             min;             max;            mean;                 stddev (%);      MiB/s
+      BASE;           0.156;           0.000;           0.000;         10;        400;         109.878;          16.508;          36.318;          17.242;           3.436 (19.927 %);   4424.936
+     title;             KiB;             MiB;             GiB;          n;          r;               d;             min;             max;            mean;                 stddev (%);      MiB/s
+      BASE;           0.156;           0.000;           0.000;         10;        600;         230.478;          11.360;          11.980;          11.391;           0.107 ( 0.936 %);   6697.911
+     title;             KiB;             MiB;             GiB;          n;          r;               d;             min;             max;            mean;                 stddev (%);      MiB/s
+      BASE;           0.312;           0.000;           0.000;         20;        600;         333.053;          19.708;          20.372;          19.918;           0.217 ( 1.090 %);   7660.734

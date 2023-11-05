@@ -11,7 +11,6 @@
 //Baseline - naive implementation
 void dgemm_ijk(f64 *restrict a, f64 *restrict b, f64 *restrict c, u64 n)
 {
-	printf("IJK start\n");
   for (u64 i = 0; i < n; i++)
     for (u64 j = 0; j < n; j++)
       for (u64 k = 0; k < n; k++)

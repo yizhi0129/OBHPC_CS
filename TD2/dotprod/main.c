@@ -48,7 +48,7 @@ int main(int argc, char **argv)
 	 "n", "r", "d", "min", "max", "mean", "stddev (%)", "MiB/s");
   
   run_benchmark("BASE",   dotprod_base, n, r);
-  
+
   //
   return 0;
 }
@@ -88,7 +88,7 @@ void run_benchmark(const ascii *title,
       do
 	{
 	  clock_gettime(CLOCK_MONOTONIC_RAW, &t1);
-	  
+    
 	  for (u64 j = 0; j < r; j++)
 	    d = kernel(a, b, n);
 	  

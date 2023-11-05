@@ -6,12 +6,13 @@
 //
 #include "types.h"
 
-//
+//print elements of the matrix
 void print_f64(f64 *restrict a, u64 n)
 {
   for (u64 i = 0; i < n; i++)
+  {  
     printf("%lf%c", a[i], ((i + 1) % n) ? ' ' : '\n');
-  
+  }
   printf("\n");
 }
 
@@ -22,22 +23,30 @@ void init_f64(f64 *restrict a, u64 n, const ascii m)
   if (m == 'r' || m == 'R')
     {
       for (u64 i = 0; i < n; i++)
-	a[i] = (f64)RAND_MAX / (f64)rand();
+	    {  
+        a[i] = (f64)RAND_MAX / (f64)rand();
+      }
     }
+  
   else //Zeroing up the array
     if (m == 'z' || m == 'Z')
       {
-	for (u64 i = 0; i < n; i++)
-	  a[i] = 0.0;
+	      for (u64 i = 0; i < n; i++)
+	      {
+          a[i] = 0.0;
+        }
       }
-    else //Same value per entry
-      if (m == 'c' || m == 'C')
-	{
-	  f64 c = (f64)RAND_MAX / (f64)rand();
+    
+  else //Same value per entry
+    if (m == 'c' || m == 'C')
+	  {
+	    f64 c = (f64)RAND_MAX / (f64)rand();
 	  
-	  for (u64 i = 0; i < n; i++)
-	    a[i] = c;
-	}
+	    for (u64 i = 0; i < n; i++)
+	    {
+        a[i] = c;
+	    }
+    }
 }
 
 //

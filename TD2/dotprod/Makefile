@@ -7,6 +7,8 @@ GNU_LFLAGS=-lm -lcblas
 
 FILES=main.c tools.c kernels.c
 
+CC = clang
+
 all: dotprod
 
 dotprod:

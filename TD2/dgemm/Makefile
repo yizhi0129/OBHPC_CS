@@ -7,9 +7,9 @@ GNU_LFLAGS=-lm -lcblas
 
 FILES=main.c tools.c kernels.c
 
-CC=gcc
+CC=clang
 
-all: dgemm
+all: clean dgemm
 
 dgemm:
 ifeq ($(CC),icc)
@@ -19,10 +19,10 @@ ifeq ($(CC),icx)
 	$(CC) $(CFLAGS) $(OFLAGS) $(FILES) -o $@ $(INTEL_LFLAGS)
 else
 ifeq ($(CC),gcc)
-	$(CC) $(CFLAGS) $(OFLAGS) $(FILES) -o $@ $(GNU_LFLAGS) -framework Accelerate -I /usr/local/Cellar/openblas/0.3.24/include/
+	$(CC) $(CFLAGS) $(OFLAGS) $(FILES) -o $@ $(GNU_LFLAGS) 
 else
 ifeq ($(CC),clang)
-	$(CC) $(CFLAGS) $(OFLAGS) $(FILES) -o $@ $(GNU_LFLAGS) -framework Accelerate
+	$(CC) $(CFLAGS) $(OFLAGS) $(FILES) -o $@ $(GNU_LFLAGS)
 else
 	@echo "ERROR: no compiler specified using CC. Possible values for CC: gcc, icc, icx, clang"
 endif

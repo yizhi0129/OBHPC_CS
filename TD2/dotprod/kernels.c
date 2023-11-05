@@ -9,6 +9,7 @@
 #include "types.h"
 
 //Baseline - naive implementation
+//dot product of two vectors
 f64 dotprod_base(f64 *restrict a, f64 *restrict b, u64 n)
 {
   double d = 0.0;

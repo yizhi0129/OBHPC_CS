@@ -47,19 +47,14 @@ int main(int argc, char **argv)
 	 "KiB", "MiB", "GiB",
 	 "n", "r", "min", "max", "mean", "stddev (%)", "MiB/s");
   
-  printf("IJK\n");
   run_benchmark("IJK",   dgemm_ijk, n, r);
 
-  printf("KIJ\n");
   run_benchmark("IKJ",   dgemm_ikj, n, r);
 
-  printf("KIJ\n");
   run_benchmark("IEX",   dgemm_iex, n, r);
 
-  printf("KIJ\n");
   run_benchmark("UNROLL", dgemm_unroll, n, r);
 
-  printf("KIJ\n");
   run_benchmark("CBLAS", dgemm_cblas, n, r);
   
   //
