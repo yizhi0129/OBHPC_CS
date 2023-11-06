@@ -1,0 +1,10 @@
+cohency line size 64  
+id 0 
+level 1
+number of sets 64
+physical line partition 1
+shared cpu list 0,2
+shared cpu map 5
+size 32K
+type Data
+ways of associativity 8
