@@ -6,10 +6,10 @@ analyzing CPU 0:
   hardware limits: 500 MHz - 3.20 GHz
   available cpufreq governors: conservative ondemand userspace powersave performance schedutil
   current policy: frequency should be within 500 MHz and 3.20 GHz.
-                  The governor "ondemand" may decide which speed to use
+                  The governor "performance" may decide which speed to use
                   within this range.
   current CPU frequency: Unable to call hardware
-  current CPU frequency: 1.12 GHz (asserted by call to kernel)
+  current CPU frequency: 2.50 GHz (asserted by call to kernel)
   boost state support:
     Supported: yes
     Active: yes
