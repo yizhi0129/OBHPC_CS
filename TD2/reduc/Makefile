@@ -1,6 +1,6 @@
 CFLAGS=-g -Wall
 
-OFLAGS=-O0
+OFLAGS=-Ofast
 
 INTEL_LFLAGS=-qmkl
 GNU_LFLAGS=-lm -lcblas
