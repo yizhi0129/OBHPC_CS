@@ -1,13 +1,13 @@
 CFLAGS=-g -Wall
 
-OFLAGS=-Ofast
+OFLAGS=-O3
 
 INTEL_LFLAGS=-qmkl
 GNU_LFLAGS=-lm -lcblas
 
 FILES=main.c tools.c kernels.c
 
-CC=clang
+CC=icc
 
 all: clean dgemm
 
