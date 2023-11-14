@@ -1,6 +1,6 @@
-set title "dotprod gcc n = 50, r = 120"
+set title "dotprod gcc n = 40000, r = 2000"
 set term pngcairo   
-set output "dotprod_gcc.png"  
+set output "dotprod_gcc_L3.png"  
 
 set style data histograms
 set style fill solid
@@ -14,8 +14,8 @@ set ylabel "MiB/s"
 
 set offset 0.2, 0, 0
 
-plot 'dotprod_gcc_O0.txt' using ($0):15 with boxes title "O0", \
-     'dotprod_gcc_O1.txt' using ($0+0.1):15 with boxes title "O1", \
-     'dotprod_gcc_O2.txt' using ($0+0.2):15 with boxes title "O2", \
-     'dotprod_gcc_o3.txt' using ($0+0.3):15 with boxes title "O3", \
-     'dotprod_gcc_Ofast.txt' using ($0+0.4):15 with boxes title "Ofast"
+plot 'gcc_O0_L3.txt' using ($0):15 with boxes title "O0", \
+     'gcc_O1_L3.txt' using ($0+0.1):15 with boxes title "O1", \
+     'gcc_O2_L3.txt' using ($0+0.2):15 with boxes title "O2", \
+     'gcc_O3_L3.txt' using ($0+0.3):15 with boxes title "O3", \
+     'gcc_Ofast_L3.txt' using ($0+0.4):15 with boxes title "Ofast"

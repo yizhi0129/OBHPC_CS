@@ -1,6 +1,6 @@
-set title "reduc clang n = 50, r = 500"
+set title "reduc clang n = 40000, r = 2000"
 set term pngcairo   
-set output "reduc_clang.png"  
+set output "reduc_clang_L3.png"  
 
 set style data histograms
 set style fill solid
@@ -12,10 +12,12 @@ set xtics ("BASE" 1, "UNROLL4 " 2, "UNROLL8 " 3, "CBLAS" 4)
 set ytics 4000
 set ylabel "MiB/s"
 
+set key horizontal
+
 set offset 0.2, 0, 0
 
-plot 'reduc_clang_O0.txt' using ($0):15 with boxes title "O0", \
-     'reduc_clang_O1.txt' using ($0+0.1):15 with boxes title "O1", \
-     'reduc_clang_O2.txt' using ($0+0.2):15 with boxes title "O2", \
-     'reduc_clang_o3.txt' using ($0+0.3):15 with boxes title "O3", \
-     'reduc_clang_Ofast.txt' using ($0+0.4):15 with boxes title "Ofast"
+plot 'clang_O0_L3.txt' using ($0):15 with boxes title "O0", \
+     'clang_O1_L3.txt' using ($0+0.1):15 with boxes title "O1", \
+     'clang_O2_L3.txt' using ($0+0.2):15 with boxes title "O2", \
+     'clang_O3_L3.txt' using ($0+0.3):15 with boxes title "O3", \
+     'clang_Ofast_L3.txt' using ($0+0.4):15 with boxes title "Ofast"
