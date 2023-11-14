@@ -87,6 +87,7 @@ f64 dotprod_unroll8(f64 *restrict a, f64 *restrict b, u64 n)
 }
 
 //high performance function from CBLAS library
+//arguments 1 mean the stride in array a and b is 1
 f64 dotprod_cblas(f64 *restrict a, f64 *restrict b, u64 n)
 {
   return cblas_ddot(n, a, 1, b, 1); 
